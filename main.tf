@@ -24,7 +24,7 @@ resource "aws_instance" "my_instance" {
     encrypted = true
   }
   tags = {
-    Name : "Application-Server"
+    Name : "web-Server"
   }
 }
 
