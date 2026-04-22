@@ -17,7 +17,12 @@ resource "aws_instance" "my_instance" {
   key_name               = "aws-key"
   vpc_security_group_ids = [aws_security_group.web_sg.id]
   user_data              = file("nginx.sh")
-
+  metadata_options {
+    http_tokens = "required"
+  }
+  root_block_device {
+    encrypted = true
+  }
   tags = {
     Name : "Application-Server"
   }
